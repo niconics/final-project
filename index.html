@@ -24,8 +24,8 @@
         }
         
     </style>
-   <body>
-  <h1>Are you hungry?</h1>
+<body>
+  <h1>Checkbox Example</h1>
   <form>
     <input type="checkbox" id="yesCheckbox"> Yes<br>
     <input type="checkbox" id="noCheckbox"> No<br>
@@ -64,11 +64,59 @@
         // Reload the site if "No" checkbox is checked and confirm button is clicked
         location.reload();
       } else {
-
         // Perform other action if "Yes" checkbox is checked and confirm button is clicked
-      <a href="home final.html">
+        console.log<body>
+
+  <h1>Are you hungry?</h1>
+
+  <input type="checkbox" id="yesCheckbox">
+  <label for="yesCheckbox">Yes</label>
+
+  <input type="checkbox" id="noCheckbox">
+  <label for="noCheckbox">No</label>
+
+  <button id="confirmButton" disabled>Confirm</button>
+
+  <script>
+    // Get the "Yes" and "No" checkboxes and the confirm button
+    var yesCheckbox = document.getElementById("yesCheckbox");
+    var noCheckbox = document.getElementById("noCheckbox");
+    var confirmButton = document.getElementById("confirmButton");
+
+    // Add event listeners for the "click" event on the checkboxes
+    yesCheckbox.addEventListener("click", updateConfirmButton);
+    noCheckbox.addEventListener("click", updateConfirmButton);
+
+    // Add event listener for the "click" event on the confirm button
+    confirmButton.addEventListener("click", confirmAction);
+
+    // Function to update the confirm button based on the checkbox states
+    function updateConfirmButton() {
+      // Check if the "Yes" or "No" checkbox is checked
+      if (yesCheckbox.checked) {
+        // Enable the confirm button if "Yes" checkbox is checked
+        confirmButton.disabled = false;
+      } else if (noCheckbox.checked) {
+        // Disable the confirm button if "No" checkbox is checked
+        confirmButton.disabled = true;
+      }
+    }
+
+    // Function to perform action when the confirm button is clicked
+    function confirmAction() {
+      if (confirmButton.disabled) {
+        return; // Do nothing if the confirm button is disabled
+      }
+
+      if (noCheckbox.checked) {
+        // Reload the page if "No" checkbox is checked and confirm button is clicked
+        window.location.reload();
+      } else {
+        // Perform other action if "Yes" checkbox is checked and confirm button is clicked
+         <a href="home final.html">
       }
     }
   </script>
+
 </body>
 </html>
