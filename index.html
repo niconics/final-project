@@ -34,7 +34,7 @@
   <input type="checkbox" id="noCheckbox">
   <label for="noCheckbox">No</label>
 
-  <button id="confirmButton" disabled>Confirm</button>
+  <a href="#" id="confirmButton" disabled>Confirm</a>
 
   <script>
     // Get the "Yes" checkbox and the confirm button
@@ -43,9 +43,6 @@
 
     // Add event listener for the "click" event on the "Yes" checkbox
     yesCheckbox.addEventListener("click", updateConfirmButton);
-
-    // Add event listener for the "click" event on the confirm button
-    confirmButton.addEventListener("click", confirmAction);
 
     // Function to update the confirm button based on the checkbox state
     function updateConfirmButton() {
@@ -59,13 +56,16 @@
       }
     }
 
+    // Add event listener for the "click" event on the confirm button
+    confirmButton.addEventListener("click", confirmAction);
+
     // Function to perform action when the confirm button is clicked
     function confirmAction() {
       if (confirmButton.disabled) {
         return; // Do nothing if the confirm button is disabled
       }
 
-      // Redirect to a specific link if "Yes" checkbox is checked and confirm button is clicked
+      // Redirect to the specified link if "Yes" checkbox is checked and confirm button is clicked
       if (yesCheckbox.checked) {
         window.location.href = "https://niconics.github.io/final-project/home%20final.html";
       }
