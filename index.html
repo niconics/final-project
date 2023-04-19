@@ -25,27 +25,64 @@
         
     </style>
     <body>
+  <h1>Are you hungry?</h1>
+  <form>
+    <input type="checkbox" id="yesCheckbox"> Yes<br>
+    <input type="checkbox" id="noCheckbox"> No<br>
+    <a id="yesLink" href="">Yes Link</a><br>
+    <a id="noLink" href="" class="disabled">No Link</a><br>
+    <button type="button" id="confirmButton" disabled>Confirm</button>
+  </form>
 
-<h1>
-    ARE YOU HUNGRY?
-</h1>
-<br>
-<br>
-<br>
-<form>
-    YES
-    <input type="checkbox" name="uname">
-    YES!
-    <input type="radio" name="pwd"><br>
-<a href="home final.html"  class="btn btn-primary">Confirm</a>
-</form>
+  <script>
+    // Paste the JavaScript code here
+    // Get the "Yes" and "No" checkboxes, the link elements, and the confirm button
+    var yesCheckbox = document.getElementById("yesCheckbox");
+    var noCheckbox = document.getElementById("noCheckbox");
+    var yesLink = document.getElementById("yesLink");
+    var noLink = document.getElementById("noLink");
+    var confirmButton = document.getElementById("confirmButton");
 
+    // Add event listeners for the "click" event on the checkboxes
+    yesCheckbox.addEventListener("click", updateLinks);
+    noCheckbox.addEventListener("click", updateLinks);
 
-        
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        
-        <script src="" async defer></script>
-    </body>
+    // Add event listener for the "click" event on the confirm button
+    confirmButton.addEventListener("click", confirmAction);
+
+    // Function to update the link states and confirm button based on the checkbox states
+    function updateLinks() {
+      // Check if the "Yes" checkbox is checked
+      if (yesCheckbox.checked) {
+        // Enable the "Yes" link and disable the "No" link
+        yesLink.href = "https://example.com/yeslink";
+        noLink.classList.add("disabled");
+        // Enable the confirm button
+        confirmButton.disabled = false;
+      } else if (noCheckbox.checked) {
+        // Disable the "No" link and enable the "Yes" link
+        noLink.classList.remove("disabled");
+        yesLink.removeAttribute("href");
+        // Enable the confirm button
+        confirmButton.disabled = false;
+      } else {
+        // Disable both links and the confirm button
+        yesLink.removeAttribute("href");
+        noLink.classList.add("disabled");
+        confirmButton.disabled = true;
+      }
+    }
+
+    // Function to perform action when the confirm button is clicked
+    function confirmAction() {
+      if (noCheckbox.checked) {
+        // Reload the site if "No" checkbox is checked and confirm button is clicked
+        location.reload();
+      } else {
+        // Perform other action if "Yes" checkbox is checked and confirm button is clicked
+        console.log("Confirmed!");
+      }
+    }
+  </script>
+</body>
 </html>
